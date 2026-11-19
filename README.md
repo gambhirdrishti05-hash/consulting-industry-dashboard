@@ -8,35 +8,29 @@ I spent 2 years at EY and saw the industry hire heavily and lose people quickly.
 
 ## What the data shows
 
-- The industry added about 600,000 employees in 2023, then lost about 150,000 in 2024
-- Revenue per consultant fell about 23%, from $196K in 2022 to $150K in 2023, the sharpest single year drop in this dataset. It recovered to about $171K in 2024
-- Deloitte's U.S. revenue grew about 40%, from roughly $23B in 2021 to roughly $33B in 2024
-- The Big Four's share of the U.S. consulting market grew from 14.8% in 2013 to a peak of about 23.8% in 2023, then 22.8% in 2024
+- U.S. consulting headcount rose by about 600,000 in 2023 (+32%), then fell by about 150,000 in 2024
+- Market revenue grew less than 1% in 2023 (0.7%), so revenue per consultant fell about 23%, from $196K in 2022 to $150K in 2023. This is the sharpest single year drop in the dataset. It recovered to about $171K in 2024
+- Deloitte's U.S. revenue grew about 44%, from $22.9B in 2021 to $33.1B in 2024
+- Big Four U.S. revenue equaled about 14.8% of the U.S. consulting market size in 2013, peaked near 23.8% in 2023, and was 22.8% in 2024. This is a ratio of firm revenue to market size, not a true consulting market share (see Limits)
 
 ## Dashboard structure
 
 | Chart | What it shows |
 |---|---|
 | U.S. Consulting Workforce 2013 to 2024 | Industry headcount over time, including the 2023 jump and the 2024 drop |
-| Revenue Per Consultant 2013 to 2024 | Market revenue divided by headcount, and the 2023 drop |
+| Revenue Per Consultant 2013 to 2024 | Market size divided by headcount, and the 2023 drop |
 | Big Four Revenue Growth 2012 to 2024 | Deloitte, PwC, EY and KPMG U.S. revenue trends |
-| Big Four Share of U.S. Market 2013 to 2024 | The Big Four's share of total U.S. consulting revenue |
+| Big Four Share of U.S. Market 2013 to 2024 | Big Four U.S. revenue as a percentage of U.S. consulting market size |
 
 ## Data sources
 
 All data from Statista (2025):
-- U.S. management consulting market size 2013 to 2024
-- U.S. management consulting employees 2013 to 2024
-- Deloitte, PwC, EY and KPMG U.S. revenue 2012 to 2024
-- [Annual revenue growth of management consultancies worldwide 2015 to 2024: keep only if the dashboard uses it, otherwise delete this line]
+- U.S. management consulting market size and employees, 2013 to 2024 (IBISWorld)
+- Deloitte, PwC, EY and KPMG U.S. revenue, 2012 to 2024
 
 ## What I did with the data
 
-The raw Statista files came as separate Excel exports. I merged them into one clean master file using Python, then calculated three KPIs that were not in the raw data:
-
-- Year over year market growth %
-- Revenue per employee (total market revenue divided by total industry headcount)
-- Big Four market share % by year
+The raw Statista files came as separate Excel exports. I merged them into one master file using Python and calculated each firm's share of the Big Four total and the Big Four total revenue. Revenue per consultant (market size divided by headcount) and the Big Four to market ratio were calculated in Tableau. [Confirm this is accurate, or describe what actually happened.]
 
 ## Tools used
 
@@ -48,25 +42,26 @@ The raw Statista files came as separate Excel exports. I merged them into one cl
 
 | File | What it is |
 |---|---|
-| `consulting_kpi_master.xlsx` | The cleaned master dataset with all calculated KPIs |
-| [`cleaning script name`] | [The Python script or notebook used to clean and merge the data] |
+| `Consulting_KPI_Master_Dataset.xlsx` | The merged master dataset, with a data dictionary |
+| [script name] | [The Python script or notebook used to merge the data] |
 | `README.md` | This file |
 
 ## The main takeaway
 
-In 2023, headcount rose 32% while market revenue grew about 1%, so revenue per employee fell about 23%. That is partly arithmetic: the ratio drops when headcount grows faster than revenue. Headcount then fell by about 150,000 in 2024, which is consistent with a correction, but this data cannot show why firms cut. The 2023 jump may also partly reflect how the source counts employees.
+In 2023, headcount rose 32% while market revenue grew less than 1%, so revenue per consultant fell about 23%. That is partly arithmetic: the ratio drops when headcount grows faster than revenue. Headcount then fell by about 150,000 in 2024, which is consistent with a correction, but this data cannot show why firms cut. The 2023 jump may also partly reflect how the source counts employees.
 
 ## Limits
 
 - Industry level data only, so it says nothing about individual firms' hiring or pay
-- Revenue per employee is a derived ratio (market revenue divided by headcount), not a measured productivity figure
+- Revenue per consultant is a derived ratio (market size divided by headcount), not a measured productivity figure
 - No attrition, burnout or pay data is included
 - The 2023 headcount jump may partly reflect how the source counts employees
-- [Big Four figures are U.S. revenue per firm. State here whether they cover consulting only or the whole firm, because it affects the market share figures]
+- Firm revenues are total U.S. revenue (audit, tax, advisory and consulting), but market size covers consulting only. The Big Four ratio therefore overstates their consulting share
+- PwC's 2016 revenue is missing in the source. [State how you handled it in Tableau.] The 2025 row has only Deloitte and is not used
 
 ## Next step
 
-I plan to extend this analysis with U.S. Bureau of Labor Statistics hiring and separations data, joined with these tables in Snowflake using SQL.
+I plan to extend this analysis with U.S. Bureau of Labor Statistics hiring and separations data, joined with these tables in Snowflake using SQL. [Delete this section if you are not going to build it.]
 
 ## About me
 
