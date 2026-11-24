@@ -30,7 +30,7 @@ All data from Statista (2025):
 
 ## What I did with the data
 
-The raw Statista files came as separate Excel exports. I merged them into one master file using Python and calculated each firm's share of the Big Four total and the Big Four total revenue. Revenue per consultant (market size divided by headcount) and the Big Four to market ratio were calculated in Tableau. [Confirm this is accurate, or describe what actually happened.]
+The raw Statista files came as separate Excel exports. I merged them into one master file using Python and calculated each firm's share of the Big Four total and the Big Four total revenue. Revenue per consultant (market size divided by headcount) and the Big Four to market ratio were calculated in Tableau. 
 
 ## Tools used
 
@@ -43,7 +43,6 @@ The raw Statista files came as separate Excel exports. I merged them into one ma
 | File | What it is |
 |---|---|
 | `Consulting_KPI_Master_Dataset.xlsx` | The merged master dataset, with a data dictionary |
-| [script name] | [The Python script or notebook used to merge the data] |
 | `README.md` | This file |
 
 ## The main takeaway
@@ -57,11 +56,7 @@ In 2023, headcount rose 32% while market revenue grew less than 1%, so revenue p
 - No attrition, burnout or pay data is included
 - The 2023 headcount jump may partly reflect how the source counts employees
 - Firm revenues are total U.S. revenue (audit, tax, advisory and consulting), but market size covers consulting only. The Big Four ratio therefore overstates their consulting share
-- PwC's 2016 revenue is missing in the source. [State how you handled it in Tableau.] The 2025 row has only Deloitte and is not used
-
-## Next step
-
-I plan to extend this analysis with U.S. Bureau of Labor Statistics hiring and separations data, joined with these tables in Snowflake using SQL. [Delete this section if you are not going to build it.]
+- PwC's 2016 revenue is missing in the source. The 2025 row has only Deloitte and is not used
 
 ## About me
 
